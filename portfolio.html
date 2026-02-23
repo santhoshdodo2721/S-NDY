@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Portfolio of SanthoshKumar.S, a Beginner to Intermediate Cybersecurity student specializing in network security, ethical hacking, and web security."/>
+    <meta name="keywords" content="Cybersecurity, Student, Ethical Hacking, Network Security, CTF"/>
+    <meta name="author" content="SanthoshKumar.S"/>
+    <meta property="og:title" content="SanthoshKumar.S - Cybersecurity Student"/>
+    <meta property="og:description" content="Beginner to Intermediate Cybersecurity student specializing in network security and ethical hacking"/>
+    <meta property="og:image" content="https://i.pinimg.com/736x/c1/ae/37/c1ae3707d5b415ca1c9c9d6e23eaa0b3.jpg"/>
+    <title>-    S@NDY-</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link rel="icon" href="https://i.pinimg.com/736x/c1/ae/37/c1ae3707d5b415ca1c9c9d6e23eaa0b3.jpg">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff00ff",
+                        "background-light": "#000000",
+                        "background-dark": "#000000",
+                        "text-primary": "#00ff00",
+                            "text-secondary": "#ff00ff",
+                        "border-light": "#ff00ff",
+                    },
+                    fontFamily: {
+                        "display": ["'JetBrains Mono'", "monospace"],
+                        "mono": ["'JetBrains Mono'", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    keyframes: {
+                        glitch: {
+                            '0%': { transform: 'translate(0)' },
+                            '20%': { transform: 'translate(-2px, 2px)' },
+                            '40%': { transform: 'translate(-2px, -2px)' },
+                            '60%': { transform: 'translate(2px, 2px)' },
+                            '80%': { transform: 'translate(2px, -2px)' },
+                            '100%': { transform: 'translate(0)' },
+                        },
+                        scanline: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    animation: {
+                        'glitch-hover': 'glitch 0.3s cubic-bezier(.25,.46,.45,.94) both',
+                        'scanline': 'scanline 8s linear infinite',
+                        'fade-in-up': 'fade-in-up 0.8s ease-out'
+                    }
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet"/>
+    <style>
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Terminal styles */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            background: #6d746d;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        .cursor.typing {
+            animation: cursor-glitch 0.3s alternate infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        @keyframes cursor-glitch {
+            0%,100% { background: #6d746d; }
+            25% { background: #ff00ff; }
+            50% { background: #00ff00; }
+            75% { background: #ff00ff; }
+        }
+        .terminal-output {
+            min-height: 120px;
+            white-space: pre-wrap;
+            /* subtle screen flicker effect */
+            animation: flicker 0.2s infinite;
+        }
+        @keyframes flicker {
+            0%,100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+        /* additional animations */
+        @keyframes slide-in-left {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slide-in-right {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-slide-in-left { animation: slide-in-left 0.8s ease-out forwards; }
+        .animate-slide-in-right { animation: slide-in-right 0.8s ease-out forwards; }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+        body {
+            background: linear-gradient(45deg, #000000, #110011, #000000);
+            background-size: 400% 400%;
+            animation: bgPulse 30s ease infinite;
+        }
+        @keyframes bgPulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-background-light text-text-primary font-display antialiased overflow-x-hidden dark relative smooth-scroll"><div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.05] overflow-hidden"><div class="w-full h-1 bg-primary/20 animate-scanline"></div></div>
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-[0.1]" style="background-image: linear-gradient(rgba(0, 255, 0, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 0, 0.2) 1px, transparent 1px); background-size: 20px 20px;"></div>
+    <div class="relative flex min-h-screen w-full flex-col">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 w-full bg-black/90 backdrop-blur-md border-b border-primary/40 shadow-[0_0_20px_rgba(0,255,0,0.2)]">
+        <div class="layout-container flex justify-center w-full">
+            <div class="flex w-full max-w-[1280px] items-center justify-between px-6 py-4 md:px-10">
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary" style="text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);">
+                        <span class="material-symbols-outlined" style="font-size: 24px;">design_services</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight text-text-primary font-mono">&gt; SANTHOSH_KUMAR_S</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-medium hover:text-primary hover:animate-glitch-hover transition-colors text-text-primary uppercase tracking-tighter font-mono" href="#home">Home</a>
+                    <a class="text-sm font-medium hover:text-primary hover:animate-glitch-hover transition-colors text-text-secondary uppercase tracking-tighter font-mono" href="#work">Work</a>
+                    <a class="text-sm font-medium hover:text-primary hover:animate-glitch-hover transition-colors text-text-secondary uppercase tracking-tighter font-mono" href="#about">About</a>
+                    <a class="text-sm font-medium hover:text-primary hover:animate-glitch-hover transition-colors text-text-secondary uppercase tracking-tighter font-mono" href="#Achievements">Achievements</a>
+                    <a class="text-sm font-medium hover:text-primary hover:animate-glitch-hover transition-colors text-text-secondary uppercase tracking-tighter font-mono" href="#cli">Terminal</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <button class="hidden md:flex cursor-pointer items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-black transition-transform hover:scale-105 hover:bg-primary/80 shadow-lg shadow-primary/20 shadow-[0_0_15px_rgba(0,255,0,0.3)] border border-primary/50 hover:animate-glitch-hover uppercase tracking-tighter font-mono" onclick="scrollToSection('footer')">
+                        Contact Me
+                    </button>
+                    <button class="md:hidden p-2 text-text-primary uppercase tracking-tighter font-mono" onclick="toggleMobileMenu()">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative w-full overflow-hidden bg-background-light py-12 md:py-20 lg:py-28" id="home">
+            <!-- Background decorative elements -->
+            <div class="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl animate-float"></div>
+            <div class="absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-blue-400/5 blur-3xl animate-float"></div>
+            <div class="layout-container mx-auto max-w-[1280px] px-6 md:px-10">
+                <div class="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+                    <!-- Text Content -->
+        <!-- CTF Certificates Section -->
+                    <div class="flex flex-col gap-6 lg:max-w-xl" data-anim="animate-slide-in-left">
+                        <div class="text-[10px] text-primary/60 font-mono mb-[-1.5rem]"><br/>Theme:Joker</div>
+                        <div class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary uppercase tracking-wider" style="text-shadow: 0 0 10px rgba(21, 216, 44, 0.5);">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            Zer0_Logon here - Member oF Moonlitchipher 
+                        </div>
+                        <h1 id="hero-title" class="text-5xl font-black leading-[1.1] tracking-tight text-text-primary md:text-6xl lg:text-7xl font-mono">WHOAMI <span class="text-primary animate-pulse" style="text-shadow: 0 0 15px #bcb2bc;"></span> <br/> </h1>
+                        <p class="text-lg leading-relaxed text-text-secondary md:text-xl max-w-lg">
+                            I am a 2nd year Cybersecurity student at Sri Shakthi Institute of Engineering and Technology. Passionate about building strong foundations in network security, ethical hacking, and web application security through hands-on learning and CTF challenges.
+                        </p>
+                        <div class="flex flex-col gap-4 sm:flex-row pt-4">
+                            <button class="flex items-center justify-center gap-2 rounded-none bg-transparent border border-primary px-8 py-3.5 text-base font-bold text-primary transition-all hover:bg-primary hover:text-black shadow-[0_0_10px_rgba(0,255,0,0.3)] uppercase" onclick="scrollToSection('work')">
+                                View My Work
+                                <span class="material-symbols-outlined text-[20px]">arrow_downward</span>
+                            </button>
+                            <button class="flex items-center justify-center gap-2 rounded-none bg-transparent border border-primary px-8 py-3.5 text-base font-bold text-primary transition-all hover:bg-primary hover:text-black shadow-[0_0_10px_rgba(0,255,0,0.3)] uppercase">
+                                Download Resume
+                                <span class="material-symbols-outlined text-[20px]">download</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Hero Image -->
+                    <div class="relative flex justify-center lg:justify-end" data-anim="animate-slide-in-right">
+                        <div class="relative w-full max-w-[500px] aspect-[4/5] rounded-none overflow-hidden border border-primary shadow-[0_0_30px_rgba(0,255,0,0.2)] group">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 z-10"></div>
+                            <img alt="Hacker-themed portrait" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 sepia hue-rotate-[280deg] brightness-[0.8] contrast-[1.2]" src="https://i.pinimg.com/736x/c1/ae/37/c1ae3707d5b415ca1c9c9d6e23eaa0b3.jpg"/>
+                            <div class="absolute bottom-6 left-6 right-6 z-20">
+                                <div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-4 text-white">
+                                    <p class="font-bold text-lg">SanthoshKumar.S</p>
+                                    <p class="text-sm text-gray-200">Cyber Beginner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Floating decoration card -->
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 animate-bounce text-primary/60">
+                <span class="text-xs font-semibold tracking-widest uppercase">Scroll to explore</span>
+                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+            </div>
+        </section>
+
+        <!-- CLI/Terminal Demo Section -->
+        <section class="py-20 bg-black border-t border-primary/30" id="cli">
+            <div class="layout-container mx-auto max-w-[1280px] px-6 md:px-10">
+                <h2 class="text-3xl md:text-4xl font-black text-text-primary mb-6">Command Line Interface</h2>
+                <div class="bg-gray-900 text-green-500 font-mono p-6 rounded-lg shadow-lg">
+                    <pre id="terminal-output" class="terminal-output"></pre><span id="terminal-cursor" class="cursor"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-20 bg-black border-t border-primary/30" id="about" data-anim="animate-fade-in-up">
+            <div class="layout-container mx-auto max-w-[1280px] px-6 md:px-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-black text-text-primary mb-6" data-anim="animate-slide-in-left">About Me</h2>
+                        <p class="text-text-secondary text-lg leading-relaxed mb-6">
+                            I'm SanthoshKumar.S, a 2nd year Cybersecurity student at Sri Shakthi Institute of Engineering and Technology. I am passionate about understanding how systems work and how to secure them against evolving threats. My journey in cybersecurity involves building strong fundamentals through academic coursework and hands-on practical experience.
+                        </p>
+                        <p class="text-text-secondary text-lg leading-relaxed mb-6">
+                            I am actively exploring core cybersecurity domains including network security, ethical hacking, web application security, and cryptography. I participate in Capture The Flag (CTF) challenges to sharpen my problem-solving skills and practice real-world security scenarios in controlled lab environments.
+                        </p>
+                        <p class="text-text-secondary text-lg leading-relaxed mb-8">
+                            My career objective is to continuously learn, improve practical skills, and establish a strong foundation in cybersecurity. I am committed to gaining deeper technical knowledge and real-world experience, with the goal of contributing to a safer digital ecosystem.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="flex items-center justify-center gap-2 rounded-none bg-primary text-black px-8 py-3.5 text-base font-bold transition-all hover:bg-primary/80 shadow-lg shadow-primary/20 uppercase">
+                                Download Full Resume
+                                <span class="material-symbols-outlined text-[20px]">download</span>
+                            </button>
+                            <button class="flex items-center justify-center gap-2 rounded-none bg-transparent border border-primary text-primary px-8 py-3.5 text-base font-bold transition-all hover:bg-primary hover:text-black shadow-[0_0_10px_rgba(0,255,0,0.3)] uppercase" onclick="scrollToSection('contact')">
+                                Get In Touch
+                                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border border-primary/30 bg-black p-8 text-center hover:border-primary transition-all hover:shadow-[0_0_20px_rgba(0,255,0,0.2)]">
+                            <p class="text-3xl font-black text-primary mb-2">2nd Year</p>
+                            <p class="text-text-secondary">Cybersecurity Student</p>
+                        </div>
+                        <div class="border border-primary/30 bg-black p-8 text-center hover:border-primary transition-all hover:shadow-[0_0_20px_rgba(0,255,0,0.2)]">
+                            <p class="text-3xl font-black text-primary mb-2">5+</p>
+                            <p class="text-text-secondary">CTF Compatition</p>
+                        </div>
+                        <div class="border border-primary/30 bg-black p-8 text-center hover:border-primary transition-all hover:shadow-[0_0_20px_rgba(255,0,xff,0.2)]">
+                            <p class="text-3xl font-black text-primary mb-2">itzz.....</p>
+                            <p class="text-text-secondary">S@NDY</p>
+                        </div>
+                        <div class="border border-primary/30 bg-black p-8 text-center hover:border-primary transition-all hover:shadow-[0_0_20px_rgba(0,255,0,0.2)]">
+                            <p class="text-3xl font-black text-primary mb-2">Active</p>
+                            <p class="text-text-secondary">Self-Learning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="py-20 bg-background-light">
+            <div class="layout-container mx-auto max-w-[1280px] px-6 md:px-10">
+                <h2 class="text-3xl md:text-4xl font-black text-text-primary mb-12">Skills & Tools</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-6">Security Skills</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Network Security Fundamentals
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Cryptography Basics
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Web Application Security
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Vulnerability Assessment
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Ethical Hacking Basics
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-6">Tools & Platforms</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Nmap (Learning)
+                            </li>   
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Wireshark (Basic)
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Burp Suite (Intermediate)
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Kali Linux (Intermediate)
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Windows Security (Learning)
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-primary mb-6">Programming</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Python (Beginner)
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                C (Basic)
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                CTF Challenges
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Linux Environment
+                            </li>
+                            <li class="flex items-center gap-3 text-text-secondary">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                Security Research
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-20 bg-black border-t border-primary/30" id="Achievements">
+            <div class="layout-container mx-auto max-w-[1280px] px-6 md:px-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                    <div class="max-w-2xl">
+                        <h2 class="text-3xl md:text-4xl font-black text-text-primary mb-4" data-anim="animate-slide-in-left">Certificate of Events</h2>
+                        <p class="text-text-secondary text-lg">Certifications and achievements fro participating  competitions in Offline mode.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a id="viewAllCerts" class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all" href="#" style="text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);">
+                            View All Certificates
+                            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                        </a>
+                        <a id="hideCerts" class="hidden flex items-center gap-2 text-red-500 font-bold hover:gap-3 transition-all" href="#" style="text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);">
+                            Hide Certificates
+                            <span class="material-symbols-outlined text-[20px]">close</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                 
+
+                   
+                  
+
+                    <!-- Certificate 1: PSG -->
+                    <article class="group border border-primary/30 bg-background-light p-6 hover:border-primary hover:shadow-[0_0_20px_rgba(0,255,0,0.2)] transition-all transform hover:-translate-y-2">
+                        <div class="mb-4 h-48 overflow-hidden bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center rounded-none border border-primary/20 relative animate-pulse">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-7xl opacity-30 text-primary">verified</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-primary text-black px-2 py-1 text-xs font-bold rounded-none animate-pulse">PSG</div>
+                        </div>
+                        <div class="text-xs text-primary/60 font-mono mb-3">2025</div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">PSG Certification</h3>
+                        <p class="text-text-secondary text-sm mb-4">Recognition from PSG Institute of Technology and Sciences.</p>
+                        <a href="https://drive.google.com/file/d/1MIcw0N6ZSP0AMU1ebf5teIoFKPeFz1xM/view?usp=drive_link" target="_blank" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                            View Certificate
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- Certificate 2: REC -->
+                    <article class="group border border-primary/30 bg-background-light p-6 hover:border-primary hover:shadow-[0_0_20px_rgba(0,255,0,0.2)] transition-all transform hover:-translate-y-2">
+                        <div class="mb-4 h-48 overflow-hidden bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center rounded-none border border-primary/20 relative animate-pulse">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-7xl opacity-30 text-primary">verified</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-primary text-black px-2 py-1 text-xs font-bold rounded-none animate-pulse">REC</div>
+                        </div>
+                        <div class="text-xs text-primary/60 font-mono mb-3">2025</div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">REC Certificate</h3>
+                        <p class="text-text-secondary text-sm mb-4">Awarded for participating    in the REC cybersecurity competition.</p>
+                        <a href="https://drive.google.com/file/d/1UPFtOlUrf-a9-PwiVTSZrHlUpv5ixddE/view?usp=drive_link" target="_blank" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                            View Certificate
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- Certificate 3: Amirtha -->
+                    <article class="group border border-primary/30 bg-background-light p-6 hover:border-primary hover:shadow-[0_0_20px_rgba(0,255,0,0.2)] transition-all transform hover:-translate-y-2">
+                        <div class="mb-4 h-48 overflow-hidden bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center rounded-none border border-primary/20 relative animate-pulse">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-7xl opacity-30 text-primary">verified</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-primary text-black px-2 py-1 text-xs font-bold rounded-none animate-pulse">Amirtha</div>
+                        </div>
+                        <div class="text-xs text-primary/60 font-mono mb-3">2025</div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">Amirtha Certificate</h3>
+                        <p class="text-text-secondary text-sm mb-4">Awarded for successful completion of the Amirtha security program.</p>
+                        <a href="https://drive.google.com/file/d/1Sd_O-FuQB7n6Sd7pSp91OmHT_LC2wayp/view?usp=drive_link" target="_blank" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                            View Certificate
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- Certificate 4: KPR -->
+                    <article class="additional-cert hidden group border border-primary/30 bg-background-light p-6 hover:border-primary hover:shadow-[0_0_20px_rgba(0,255,0,0.2)] transition-all transform hover:-translate-y-2">
+                        <div class="mb-4 h-48 overflow-hidden bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center rounded-none border border-primary/20 relative animate-pulse">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-7xl opacity-30 text-primary">verified</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-primary text-black px-2 py-1 text-xs font-bold rounded-none animate-pulse">KPR</div>
+                        </div>
+                        <div class="text-xs text-primary/60 font-mono mb-3">2025</div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">KPR Certificate</h3>
+                        <p class="text-text-secondary text-sm mb-4">Recognition from KPR event for cybersecurity skills.</p>
+                        <a href="https://drive.google.com/file/d/1ZB26jgf1iHi89EXYnDJyHfJ6qoUnp8Lm/view?usp=drive_link" target="_blank" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                            View Certificate
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- Certificate 5: SIET -->
+                    <article class="additional-cert hidden group border border-primary/30 bg-background-light p-6 hover:border-primary hover:shadow-[0_0_20px_rgba(0,255,0,0.2)] transition-all transform hover:-translate-y-2">
+                        <div class="mb-4 h-48 overflow-hidden bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center rounded-none border border-primary/20 relative animate-pulse">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-7xl opacity-30 text-primary">verified</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-primary text-black px-2 py-1 text-xs font-bold rounded-none animate-pulse">SIET</div>
+                        </div>
+                        <div class="text-xs text-primary/60 font-mono mb-3">2025</div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">SIET Certificate</h3>
+                        <p class="text-text-secondary text-sm mb-4"CTF certificate earned during SIET cyber challenge.</p>
+                        <a href="https://drive.google.com/file/d/1c5yVpv5AlovDS4z1yacpPGAVhm1YyORX/view?usp=drive_link" target="_blank" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                            View Certificate
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- Certificate 6: SIET -->
+                    <article class="additional-cert hidden group border border-primary/30 bg-background-light p-6 hover:border-primary hover:shadow-[0_0_20px_rgba(0,255,0,0.2)] transition-all transform hover:-translate-y-2">
+                        <div class="mb-4 h-48 overflow-hidden bg-gradient-to-br from-primary/30 to-blue-500/30 flex items-center justify-center rounded-none border border-primary/20 relative animate-pulse">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-7xl opacity-30 text-primary">verified</span>
+                            </div>
+                            <div class="absolute top-2 right-2 bg-primary text-black px-2 py-1 text-xs font-bold rounded-none animate-pulse">SIET</div>
+                        </div>
+                        <div class="text-xs text-primary/60 font-mono mb-3">2025</div>
+                        <h3 class="text-xl font-bold text-text-primary mb-3 group-hover:text-primary transition-colors">SIET Certificate</h3>
+                        <p class="text-text-secondary text-sm mb-4">Hackathon SIET award for advanced cybersecurity participation.</p>
+                        <a href="https://drive.google.com/file/d/1Hoexjr74xyK7qVggWwfoUjAqknEoaoYg/view?usp=drive_link" target="_blank" class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all">
+                            View Certificate
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </article>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section 
+        <section class="py-20 bg-background-light" id="work">
+            <div class="layout-container mx-auto max-w-[1280px] px-6 md:px-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                    <div class="max-w-2xl">
+                        <h2 class="text-3xl md:text-4xl font-black text-text-primary mb-4" data-anim="animate-slide-in-left">My Expertise</h2>
+                        <p class="text-text-secondary text-lg">Building strong foundations in cybersecurity with focus on practical skills, vulnerability assessment, and secure system design.</p>
+                    </div>
+                    <a class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all" href="#" style="text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);">
+                        View All Services
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Card 1 
+                    <div class="group relative overflow-hidden rounded-none border border-primary/30 bg-black p-8 transition-all hover:border-primary hover:shadow-[0_0_30px_rgba(0,255,0,0.2)]">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-black transition-colors" style="text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);">
+                            <span class="material-symbols-outlined text-3xl">security</span>
+                        </div>
+                        <h3 class="mb-3 text-xl font-bold text-text-primary">Network Security</h3>
+                        <p class="text-text-secondary leading-relaxed">Understanding network fundamentals, protocols, and security mechanisms. Learning to identify and mitigate network-based threats.</p>
+                    </div>
+                    <!-- Card 2 
+                    <div class="group relative overflow-hidden rounded-none border border-primary/30 bg-black p-8 transition-all hover:border-primary hover:shadow-[0_0_30px_rgba(0,255,0,0.2)]">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-black transition-colors" style="text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);">
+                            <span class="material-symbols-outlined text-3xl">bug_report</span>
+                        </div>
+                        <h3 class="mb-3 text-xl font-bold text-text-primary">Ethical Hacking</h3>
+                        <p class="text-text-secondary leading-relaxed">Learning to identify vulnerabilities through authorized penetration testing and security assessments in controlled environments.</p>
+                    </div>
+                    <!-- Card 3 
+                    <div class="group relative overflow-hidden rounded-none border border-primary/30 bg-black p-8 transition-all hover:border-primary hover:shadow-[0_0_30px_rgba(0,255,0,0.2)]">
+                        <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-black transition-colors" style="text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);">
+                            <span class="material-symbols-outlined text-3xl">code</span>
+                        </div>
+                        <h3 class="mb-3 text-xl font-bold text-text-primary">Web Security</h3>
+                        <p class="text-text-secondary leading-relaxed">Exploring web application vulnerabilities, secure coding practices, and tools like Burp Suite for security testing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+         -->
+
+        <!-- Featured Work Section -->
+        <section class="py-20 bg-background-light">
+            <div class="layout-container mx-auto max-w-[1280px] px-6 md:px-10">
+                <h2 class="text-3xl md:text-4xl font-black text-text-primary mb-4" data-anim="animate-slide-in-left">Projects</h2>
+                <p class="text-text-secondary text-lg mb-12">Hands-on security projects showcasing vulnerability analysis, penetration testing, and defensive security implementation.</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="group relative overflow-hidden border border-primary/30 bg-black hover:border-primary transition-all hover:shadow-[0_0_30px_rgba(0,255,0,0.2)]">
+                        <div class="aspect-video overflow-hidden relative">
+                            <div class="w-full h-full bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-6xl opacity-30">network_check</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs bg-primary/20 text-primary px-3 py-1 uppercase font-bold">Network Security</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-text-primary mb-3">HELIO-THE COMPLETE RECONNAISSANCE TOOL</h3>
+                            <p class="text-text-secondary mb-4">Performed comprehensive network scanning and , identifY open ports, services, and potential vulnerabilities for targeted systems.</p>
+                            <a href="#" class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+                                View Lab Report
+                                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="group relative overflow-hidden border border-primary/30 bg-black hover:border-primary transition-all hover:shadow-[0_0_30px_rgba(0,255,0,0.2)]">
+                        <div class="aspect-video overflow-hidden relative">
+                            <div class="w-full h-full bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-6xl opacity-30">phishing</span>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs bg-primary/20 text-primary px-3 py-1 uppercase font-bold">Phishing Awareness</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-text-primary mb-3">PHISHING SIMULATION TOOL</h3>
+                            <p class="text-text-secondary mb-4">A learning tool for cyber beginners to understand and practice phishing attacks safely by simulating real scenarios.</p>
+                            <a href="#" class="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all">
+                                Learn More
+                                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Certificates/Logos section removed per user request -->
+        <!-- CTA Section -->
+            <div class="layout-container mx-auto max-w-[960px] px-6 md:px-10 text-center relative z-10">
+                <!-- System banner and headline removed per user request -->
+                <!-- CTA buttons removed per user request -->
+            </div>
+        </section>
+    </main>
+
+   
+
+    <footer id="footer" class="py-10 border-t bg-background-dark border-primary/30 shadow-[0_-5px_20px_rgba(0,255,0,0.1)]">
+        <div class="layout-container mx-auto max-w-[1280px] px-6 md:px-10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="flex h-10 w-10 items-center justify-center rounded bg-primary/10 text-primary" style="text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);">
+                    <span class="material-symbols-outlined text-lg">design_services</span>
+                </div>
+                <div>
+                    <div class="font-bold text-text-primary">SanthoshKumar.S</div>
+                    <div class="text-xs text-text-secondary">Cybersecurity Student</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+                <div class="flex gap-6 text-sm text-text-secondary font-medium">
+                    <a class="hover:text-primary transition-colors" href="https://www.linkedin.com/in/santhosh-kumar-13a419338" target="_blank" rel="noopener">LinkedIn</a>
+                    <a class="hover:text-primary transition-colors" href="https://Instagram.com" target="_blank" rel="noopener">Instagram</a>
+                    <a class="hover:text-primary transition-colors" href="https://github.com/santhoshdodo2721" target="_blank" rel="noopener">GitHub</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="#" class="inline-flex items-center gap-3 px-4 py-2 bg-primary text-black font-semibold hover:bg-primary/80 transition-all" onclick="openContactForm('santhoshdodo2122@gmail.com'); return false;" aria-label="Contact via Gmail">
+                        <span class="material-symbols-outlined">mail</span>
+                        Contact Me
+                    </a>
+                    
+                </div>
+            </div>
+
+            <p class="text-sm text-text-secondary">© 2026 SanthoshKumar.S. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.querySelector('nav');
+            if (nav) {
+                nav.classList.toggle('hidden');
+            }
+        }
+
+        function openContactForm(email = 'santhoshdodo2122@gmail.com') {
+            const subject = 'Project Inquiry';
+            const body = 'Hi, I\'d like to discuss a project with you.';
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.open(gmailUrl, '_blank');
+        }
+
+        // Smooth scroll behavior for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add fade-in animation to elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const animCls = entry.target.dataset.anim || 'fade-in';
+                    entry.target.classList.add(animCls);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Counter animation for projects completed
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function update() {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                } else {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(update);
+                }
+            }
+            update();
+        }
+
+        // Trigger counter when element is in view
+        const counterElement = document.querySelector('.counter');
+        if (counterElement) {
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        animateCounter(entry.target, target);
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counterObserver.observe(counterElement);
+        }
+
+        // CLI typing animation - simple three-command loop
+        function animateCLI() {
+            const output = document.getElementById('terminal-output');
+            const cursor = document.getElementById('terminal-cursor');
+
+            const prompt = 's@ndy@linux:~$ ';
+            const commands = ['whoami', 'ls -la /home/S@ndy', 'echo "Hello, world!"'];
+            const outputs = [
+                's@ndy_moonlitchipher',
+                'drwxr-xr-x  5 S@ndyusers 4096 Feb 19 2026 .\n-rw-r--r--  1 S@ndyusers 1024 Feb 19 2026 resume.pdf',
+                'Hello, world!'
+            ];
+
+            let cmdIndex = 0;
+
+            function typeText(text, speed, cb) {
+                let i = 0;
+                cursor.classList.add('typing');
+                function step() {
+                    if (i < text.length) {
+                        output.textContent += text[i++];
+                        output.scrollTop = output.scrollHeight;
+                        setTimeout(step, speed + Math.random() * 50);
+                    } else {
+                        cursor.classList.remove('typing');
+                        cb && cb();
+                    }
+                }
+                step();
+            }
+
+            function showDots(count, interval, cb) {
+                let i = 0;
+                function dot() {
+                    if (i < count) {
+                        output.textContent += '.';
+                        output.scrollTop = output.scrollHeight;
+                        i++;
+                        setTimeout(dot, interval);
+                    } else {
+                        cb && cb();
+                    }
+                }
+                dot();
+            }
+
+            function runCommand() {
+                if (cmdIndex >= commands.length) {
+                    setTimeout(() => {
+                        output.textContent = '';
+                        cmdIndex = 0;
+                        runCommand();
+                    }, 2000);
+                    return;
+                }
+
+                typeText(prompt, 60, () => {
+                    typeText(commands[cmdIndex], 80, () => {
+                        output.textContent += '\n';
+                        showDots(3, 300, () => {
+                            output.textContent += '\n';
+                            typeText(outputs[cmdIndex] + '\n', 40, () => {
+                                cmdIndex++;
+                                setTimeout(runCommand, 500);
+                            });
+                        });
+                    });
+                });
+            }
+
+            runCommand();
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            animateCLI();
+            cycleHeroText();
+
+            // certificate toggle
+            const viewLink = document.getElementById('viewAllCerts');
+            const hideLink = document.getElementById('hideCerts');
+            if (viewLink && hideLink) {
+                viewLink.addEventListener('click', e => {
+                    e.preventDefault();
+                    document.querySelectorAll('.additional-cert').forEach(el => el.classList.remove('hidden'));
+                    viewLink.classList.add('hidden');
+                    hideLink.classList.remove('hidden');
+                });
+                hideLink.addEventListener('click', e => {
+                    e.preventDefault();
+                    document.querySelectorAll('.additional-cert').forEach(el => el.classList.add('hidden'));
+                    hideLink.classList.add('hidden');
+                    viewLink.classList.remove('hidden');
+                });
+            }
+        });
+
+        // hero title typewriter with cycling
+        function cycleHeroText() {
+            const title = document.getElementById('hero-title');
+            if (!title) return;
+            const phrases = ['WHOAMI', 'WHO AM I', 'WHOAMI?'];
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let deleting = false;
+
+            function tick() {
+                const current = phrases[phraseIndex];
+                if (!deleting) {
+                    title.textContent = current.substring(0, charIndex + 1);
+                    charIndex++;
+                    if (charIndex === current.length) {
+                        deleting = true;
+                        setTimeout(tick, 1000);
+                        return;
+                    }
+                } else {
+                    title.textContent = current.substring(0, charIndex - 1);
+                    charIndex--;
+                    if (charIndex === 0) {
+                        deleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                    }
+                }
+                setTimeout(tick, deleting ? 50 : 100);
+            }
+
+            tick();
+        }
+    </script>
+</body>
+</html>
