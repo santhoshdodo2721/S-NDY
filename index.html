@@ -49,6 +49,26 @@ body {
     cursor: none;
 }
 
+/* ──────────── PRELOADER ──────────── */
+#preloader {
+    position: fixed; inset: 0; z-index: 999999;
+    background: var(--dark);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+#preloader.loaded {
+    opacity: 0; visibility: hidden;
+}
+.loader-logo {
+    font-family: var(--font-title); font-size: 2rem; color: var(--crimson);
+    letter-spacing: 6px; text-shadow: var(--glow-red);
+    animation: loaderPulse 1.2s ease-in-out infinite alternate;
+}
+@keyframes loaderPulse {
+    0% { opacity: 0.3; filter: blur(2px); transform: scale(0.96); }
+    100% { opacity: 1; filter: blur(0px); transform: scale(1.02); }
+}
+
 /* ──────────── CUSTOM CURSOR ──────────── */
 #cur {
     position: fixed;
@@ -947,6 +967,11 @@ section{position:relative;overflow:hidden;}
 </head>
 <body>
 
+<!-- ══ PRELOADER ══ -->
+<div id="preloader">
+    <div class="loader-logo">S@NDY</div>
+</div>
+
 <div id="cur"></div>
 <div id="cur-ring"></div>
 <canvas id="bg-canvas"></canvas>
@@ -1463,6 +1488,14 @@ section{position:relative;overflow:hidden;}
 </footer>
 
 <script>
+/* ── PRELOADER ── */
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const p = document.getElementById('preloader');
+        if(p) p.classList.add('loaded');
+    }, 400); // subtle delay for smoothness
+});
+
 /* ── CURSOR ── */
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
 let mx=0,my=0,rx=0,ry=0;
